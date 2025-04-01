@@ -10,7 +10,8 @@ from dotenv import load_dotenv
 
 # Connect to Elasticsearch with authentication
 load_dotenv()
-
+# Streamlit UI
+st.title("Elasticsearch Data Extractor")
 
 # User input for Elasticsearch credentials
 es_host = st.text_input("Enter Elasticsearch Host", "http://localhost:9200")
