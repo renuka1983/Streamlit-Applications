@@ -11,14 +11,10 @@ import uuid
 # Connect to Elasticsearch with authentication
 load_dotenv()
 
+ES_HOST = os.environ['ES_HOST'] # Update with actual host
+ES_USER = os.environ['ES_USER'] # Update with actual username
+ES_PASSWORD = os.environ['ES_PASSWORD']  # Update with actual password
 
-#ES_HOST = os.environ['ES_HOST'] # Update with actual host
-#ES_USER = os.environ['ES_USER'] # Update with actual username
-#ES_PASSWORD = os.environ['ES_PASSWORD']  # Update with actual password
-
-ES_HOST = 'https://sqml-dhmp.es.us-west-2.aws.found.io:9243'
-ES_USER = 'elastic'
-ES_PASSWORD = 'f7VU4FcOvsnrYr4poj9H4LG0'
 
 es = Elasticsearch(
     ES_HOST,
