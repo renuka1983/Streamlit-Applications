@@ -12,14 +12,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-ES_HOST = os.environ['ES_HOST'] # Update with actual host
-ES_USER = os.environ['ES_USER'] # Update with actual username
-ES_PASSWORD = os.environ['ES_PASSWORD']  # Update with actual password
+# User input for Elasticsearch credentials
+es_host = st.text_input("Enter Elasticsearch Host", "http://localhost:9200")
+es_username = st.text_input("Enter Elasticsearch Username", "", type="password")
+es_password = st.text_input("Enter Elasticsearch Password", "", type="password")
 
-es = Elasticsearch(
-    ES_HOST,
-    basic_auth=(ES_USER, ES_PASSWORD)
-)
+
+# Elasticsearch connection setup
+es = Elasticsearch(es_host, basic_auth=(es_username, es_password), timeout=60, max_retries=3, retry_on_timeout=True)
 
 # Function to list indices based on keyword
 def list_indices(keyword):
