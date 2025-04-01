@@ -11,6 +11,9 @@ import uuid
 # Connect to Elasticsearch with authentication
 #load_dotenv()
 
+# Streamlit UI
+st.title("Elasticsearch Data Extractor")
+
 # User input for Elasticsearch credentials
 es_host = st.text_input("Enter Elasticsearch Host", "http://localhost:9200")
 es_username = st.text_input("Enter Elasticsearch Username", "", type="password")
@@ -24,8 +27,6 @@ es = Elasticsearch(es_host, basic_auth=(es_username, es_password), timeout=60, m
 VALID_ES_TYPES = {"text", "keyword", "integer", "long", "float", "double", "boolean", "date"}
 actions = []
 failed_rows = []
-# Streamlit UI
-st.title("CSV to Elasticsearch Uploader")
 
 # File uploads
 schema_file = st.file_uploader("Upload Schema CSV file", type=["csv"], key="schema")
