@@ -30,7 +30,7 @@ failed_rows = []
 
 # File uploads
 schema_file = st.file_uploader("Upload Schema CSV file", type=["csv"], key="schema")
-data_file = st.file_uploader("Upload Data CSV file", type=["csv"], key="data")
+data_file = st.file_uploader("Upload Data CSV file", type=["csv","xlsx","xls"], key="data")
 
 if schema_file and data_file:
     schema_df = pd.read_csv(schema_file)
