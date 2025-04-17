@@ -20,7 +20,7 @@ es_password = st.text_input("Enter Elasticsearch Password", "", type="password")
 
 
 # Elasticsearch connection setup
-es = Elasticsearch(es_host, basic_auth=(es_username, es_password), timeout=60, max_retries=3, retry_on_timeout=True)
+es = Elasticsearch(es_host, basic_auth=(es_username, es_password), request_timeout=60, max_retries=3, retry_on_timeout=True)
 
 # Function to list indices based on keyword
 def list_indices(keyword):
